@@ -5,7 +5,7 @@ import examplePic from 'public/about.png'
 async function getData() {
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/posts', {cache: 'no-store'})
   if (!res.ok) {
-    throw new console.error('frontend failed to get posts from api');
+    console.log('frontend failed to get posts from api');
   }
   return res.json()
 }
