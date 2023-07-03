@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import examplePic from 'public/about.png'
 
 async function getData() {
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/posts', {cache: 'no-store'})
@@ -9,11 +8,9 @@ async function getData() {
   }
   return res.json()
 }
-
 export default async function Blog(){
 
   const data = await getData()
-  console.log(data[0].image)
 
   return(
     <div className="my-5">
@@ -24,7 +21,7 @@ export default async function Blog(){
 
       <div className="flex flex-wrap justify-center gap-8 mx-auto">
       {
-        data.map(item => (
+        data?.map(item => (
           <Link href={`/blog/${item._id}`} className="flex flex-col items-center w-full gap-5 p-5 text-center transition bg-white md:text-left md:flex-row lg:w-5/12 rounded-xl hover:bg-purple-300" key={item._id}>
             <Image src={item.img} alt="" width={300} height={300} className="object-cover w-40 h-40 rounded-xl"/>
             <div>
