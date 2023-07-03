@@ -2,11 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 async function getData() {
-  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/posts', {cache: 'no-store'})
-  if (!res.ok) {
-    console.log('frontend failed to get posts from api');
+  try {
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `/api/posts`, { cache: 'no-store' });
+
+    if (!res.ok) {
+      return null;
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error('Error fetching all posts:', error);
+    return null;
   }
-  return res.json()
 }
 export default async function Blog(){
 
