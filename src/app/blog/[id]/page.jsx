@@ -2,12 +2,18 @@ import Image from "next/image";
 import {notFound} from 'next/navigation'
 
 async function getData(id) {
-  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `/api/posts/${id}`, {cache: 'no-store'})
+  try {
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `/api/posts/${id}`, { cache: 'no-store' });
 
-  if (!res.ok) {
-    return notFound()
+    if (!res.ok) {
+      return null;
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error('Error fetching post data:', error);
+    return null;
   }
-  return res.json()
 }
 
 export async function generateMetadata({params}) {
