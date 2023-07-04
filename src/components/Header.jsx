@@ -6,6 +6,11 @@ import logo from "public/2.png"
 
 const links = [
   {
+    id: 1,
+    title: 'home',
+    url: '/',
+  },
+  {
     id: 2,
     title: 'gallery',
     url: '/portfolio',

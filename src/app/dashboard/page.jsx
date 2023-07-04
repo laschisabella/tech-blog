@@ -65,11 +65,11 @@ export default function Dashboard(){
         <div>
           <h1 className="mb-2 font-black text-center uppercase">Write a new one!</h1>
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-            <input type="text" placeholder="Title" className="px-5 py-3 rounded-md"/>
-            <input type="text" placeholder="Subtitle" className="px-5 py-3 rounded-md"/>
-            <input type="text" placeholder="Image (url from unsplash only!!)" className="px-5 py-3 rounded-md"/>
-            <Link href="https://unsplash.com/" className="ml-3 -mt-4 font-bold text-pink-600 underline transition hover:text-pink-800">go to unsplash </Link>
-            <textarea cols="40" rows="10" placeholder="Content" className="px-5 py-3 rounded-md"/>
+            <input type="text" placeholder="Title" required className="px-5 py-3 rounded-md"/>
+            <input type="text" placeholder="Subtitle" required className="px-5 py-3 rounded-md"/>
+            <input type="text" required placeholder="Image (url from unsplash only!!)" className="px-5 py-3 rounded-md"/>
+            <Link href="https://unsplash.com/" target="_blank" className="ml-3 -mt-4 font-bold text-pink-600 underline transition hover:text-pink-800">go to unsplash </Link>
+            <textarea cols="40" rows="10" placeholder="Content" required className="px-5 py-3 rounded-md"/>
             <button className="px-10 py-2 mx-auto font-bold transition bg-pink-500 rounded md:mx-0 text-violet-100 hover:bg-pink-700">send</button>
           </form>
         </div>
